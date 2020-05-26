@@ -30,6 +30,10 @@ $font-sm:20px;
     text-align: center;
 }
 
+@mixin transition($param...){
+    transition: $param;
+}
+
 
 .banner h1 {
     $color-secondary:red;
@@ -44,4 +48,10 @@ $font-sm:20px;
     // color:$color-secondary;
     // text-align: center;
     @include headingstyles($font-md);
+    @include transition(color .5s, background-color 1s);
+
+    &:hover {
+        color: $color-tertiary;
+        background-color: $color-primary;
+    }
 }
