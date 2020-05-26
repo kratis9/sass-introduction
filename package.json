@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "scss": "node-sass -w scss/main.scss -o css --recursive",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scss": "node-sass -w scss -o css --recursive",
+    "format": "prettier --write 'src/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/kratis9/sass-introduction/issues"
   },
-  "homepage": "https://github.com/kratis9/sass-introduction#readme"
+  "homepage": "https://github.com/kratis9/sass-introduction#readme",
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format"
+    }
+  }
 }

@@ -1,3 +1,5 @@
+@import "test"; 
+
 $color-primary: orange;
 $color-secondary: gray;
 $color-tertiary: royalblue;
@@ -7,7 +9,11 @@ $font-md:30px;
 $font-sm:20px;
 
 .nav {
-    background-color: $color-primary;
+    background-color: lighten($color-primary, 20%);
+    background-color: darken($color-primary, 20%);
+    background-color: transparentize($color-primary, 0.6);
+    background-color: mix(blue, green, 10%);
+
 
     ul li {
         list-style: none;
@@ -18,40 +24,64 @@ $font-sm:20px;
         font-size: $font-sm;
         color: $color-secondary;
 
-        &:hover{
+        &:hover {
             color: royalblue;
         }
     }
-} 
+}
 
-@mixin headingstyles($font-size) {
-    font-size: $font-size;
-    color:$color-secondary;
+// @mixin headingstyles($font-size) {
+//     font-size: $font-size;
+//     color:$color-secondary;
+//     text-align: center;
+// }
+
+// @mixin transition($param...){
+//     transition: $param;
+// }
+
+.heading {
+    color: $color-primary;
+    font-size: $font-lg;
+    background-color: $color-secondary;
     text-align: center;
 }
 
-@mixin transition($param...){
-    transition: $param;
+@function fontSize($size: 25px) {
+    @return $size*2;
 }
 
-
-.banner h1 {
-    $color-secondary:red;
+h1 {
+    //$color-secondary:red;
     //font-size:$font_lg;
     // color:$color-secondary;
     // text-align: center;
-    @include headingstyles($font-lg);
+    //@include headingstyles($font-lg);
+    @extend .heading;
+
+    &:hover {
+        background-color: green;
+    }
 }
 
 .footer h3 {
     //font-size: $font-md;
     // color:$color-secondary;
     // text-align: center;
-    @include headingstyles($font-md);
-    @include transition(color .5s, background-color 1s);
+    // @include headingstyles($font-md);
+    // @include transition(color .5s, background-color 1s);
+    @extend h1;
 
-    &:hover {
-        color: $color-tertiary;
-        background-color: $color-primary;
-    }
+    // &:hover {
+    //     color: $color-tertiary;
+    //     background-color: $color-primary;
+    // }
+}
+
+.banner p {
+    font-size: fontSize($font-sm);
+}
+
+.footer p {
+    font-size: fontSize();
 }
