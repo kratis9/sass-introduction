@@ -24,15 +24,24 @@ $font-sm:20px;
     }
 } 
 
-.banner h1 {
-    $color-secondary:red;
-    font-size:$font_lg;
+@mixin headingstyles($font-size) {
+    font-size: $font-size;
     color:$color-secondary;
     text-align: center;
 }
 
+
+.banner h1 {
+    $color-secondary:red;
+    //font-size:$font_lg;
+    // color:$color-secondary;
+    // text-align: center;
+    @include headingstyles($font-lg);
+}
+
 .footer h3 {
-    font-size: $font-md;
-    color:$color-secondary;
-    text-align: center;
+    //font-size: $font-md;
+    // color:$color-secondary;
+    // text-align: center;
+    @include headingstyles($font-md);
 }
