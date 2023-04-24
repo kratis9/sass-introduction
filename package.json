@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/kratis9/sass-introduction#readme",
   "devDependencies": {
-    "husky": "^4.2.5",
+    "husky": "^8.0.3",
     "prettier": "^2.0.5"
   },
   "husky": {
